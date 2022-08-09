@@ -23,26 +23,26 @@
  * @param {string} t
  * @return {boolean}
  */
- var isAnagram = function(s, t) {
-    if (s.length !== t.length){
+var isAnagram = function (s, t) {
+    if (s.length !== t.length) {
         return false
     }
     const hashMap = {};
-    
-    for (let i = 0; i < s.length; i++){
-        if (!hashMap[s[i]]){
+
+    for (let i = 0; i < s.length; i++) {
+        if (!hashMap[s[i]]) {
             hashMap[s[i]] = 0;
         }
-        hashMap[s[i]]++; 
+        hashMap[s[i]]++;
     }
-    
-    for (let j = 0; j < t.length; j++){ 
-        if (!hashMap[t[j]]){
+
+    for (let j = 0; j < t.length; j++) {
+        if (!hashMap[t[j]]) {
             return false;
         }
-        hashMap[t[j]]--; 
+        hashMap[t[j]]--;
     }
-    
+
     return true;
-    
+
 };

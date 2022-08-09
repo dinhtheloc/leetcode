@@ -18,7 +18,7 @@
 // Output: true
 // Explanation: s is an empty string "" after removing non-alphanumeric characters.
 // Since an empty string reads the same forward and backward, it is a palindrome.
- 
+
 // Constraints:
 
 // 1 <= s.length <= 2 * 105
@@ -28,16 +28,16 @@
  * @param {string} s
  * @return {boolean}
  */
- var isPalindrome = function(s) {
-    var re = /[^A-Za-z0-9]/g; 
-  
+var isPalindrome = function (s) {
+    var re = /[^A-Za-z0-9]/g;
+
     var lowRegStr = s.toLowerCase().replace(re, '');
-    
-    for (let i = 0; i < lowRegStr.length; i++){
+
+    for (let i = 0; i < lowRegStr.length; i++) {
         if (lowRegStr.charAt(i) !== lowRegStr.charAt(lowRegStr.length - (i + 1))) {
             return false
         }
     }
-    
+
     return true
 };

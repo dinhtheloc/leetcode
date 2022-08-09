@@ -23,7 +23,7 @@
  * @param {number[]} prices
  * @return {number}
  */
- var maxProfit = function(prices) {
+var maxProfit = function (prices) {
     let profit = 0;
     let stockToBuy = prices[0];
     for (let i = 1; i < prices.length; i++) {
@@ -31,11 +31,11 @@
             stockToBuy = prices[i];
         }
         const num = prices[i] - stockToBuy;
-        
+
         if (num > profit) {
             profit = num;
         }
     }
-    
+
     return profit
 };

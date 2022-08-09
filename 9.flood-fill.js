@@ -33,17 +33,17 @@
  * @param {number} color
  * @return {number[][]}
  */
- var floodFill = function (image, sr, sc, newColor) {
+var floodFill = function (image, sr, sc, newColor) {
 
-    if(image == null || image.length < 1 || image[sr][sc] === newColor) {
+    if (image == null || image.length < 1 || image[sr][sc] === newColor) {
         return image
     }
-    
+
     const height = image.length;
     const width = image[0].length;
-    
-    var fill =  (r, c, oldColor, newColor) => {
-        if (r < 0 || c < 0 || r > height - 1 || c > width - 1 ) {
+
+    var fill = (r, c, oldColor, newColor) => {
+        if (r < 0 || c < 0 || r > height - 1 || c > width - 1) {
             return
         }
         if (image[r][c] === newColor || image[r][c] !== oldColor) {
@@ -57,7 +57,7 @@
         fill(r, c + 1, oldColor, newColor)
         fill(r, c - 1, oldColor, newColor)
     }
-   
+
     fill(sr, sc, image[sr][sc], newColor)
     return image
 };

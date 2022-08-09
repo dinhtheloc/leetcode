@@ -34,7 +34,7 @@
  * @param {ListNode} list2
  * @return {ListNode}
  */
- var mergeTwoLists = function(list1, list2) {
+var mergeTwoLists = function (list1, list2) {
     const result = {
         val: 0,
         next: null
@@ -42,7 +42,7 @@
     if (!list1) return list2;
     if (!list2) return list1;
     let head = result
-    while(list1 && list2) {
+    while (list1 && list2) {
         if (list1.val > list2.val) {
             head.next = list2;
             list2 = list2.next;
@@ -50,7 +50,7 @@
             head.next = list1;
             list1 = list1.next;
         }
-        head = head.next; 
+        head = head.next;
     }
     head.next = list1 || list2
     return result.next;

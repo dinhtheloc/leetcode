@@ -18,7 +18,7 @@
 
 // Input: root = [2,1], p = 2, q = 1
 // Output: 2
- 
+
 
 // Constraints:
 
@@ -42,18 +42,18 @@
  * @param {TreeNode} q
  * @return {TreeNode}
  */
- var lowestCommonAncestor = function(root, p, q) {
+var lowestCommonAncestor = function (root, p, q) {
     if (root == null) {
         return null
     }
 
     if (root.val > p.val && root.val > q.val) {
-        return lowestCommonAncestor(root.left, p , q);
-    } 
-    
-    if (root.val < p.val && root.val < q.val) {
-        return lowestCommonAncestor(root.right, p , q);
+        return lowestCommonAncestor(root.left, p, q);
     }
-    
+
+    if (root.val < p.val && root.val < q.val) {
+        return lowestCommonAncestor(root.right, p, q);
+    }
+
     return root
 };

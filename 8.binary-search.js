@@ -13,7 +13,7 @@
 // Input: nums = [-1,0,3,5,9,12], target = 2
 // Output: -1
 // Explanation: 2 does not exist in nums so return -1
- 
+
 
 // Constraints:
 
@@ -27,17 +27,17 @@
  * @param {number} target
  * @return {number}
  */
- var search = function(nums, target) {
+var search = function (nums, target) {
     let start = 0;
     let end = nums.length;
-    
-    while(start <= end) {
-        let numAverage = Math.floor(( start + end) / 2);
+
+    while (start <= end) {
+        let numAverage = Math.floor((start + end) / 2);
         if (nums[numAverage] === target) {
             return numAverage;
         }
-        
-        else if(nums[numAverage] < target) {
+
+        else if (nums[numAverage] < target) {
             start = numAverage + 1;
         } else {
             end = numAverage - 1;

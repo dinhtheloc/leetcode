@@ -13,7 +13,7 @@
 
 // Input: root = []
 // Output: []
- 
+
 // Constraints:
 
 // The number of nodes in the tree is in the range [0, 100].
@@ -31,9 +31,9 @@
  * @param {TreeNode} root
  * @return {TreeNode}
  */
- var invertTree = function(root) {
-    if (!root) {
-            return root;
+var invertTree = function (root) {
+        if (!root) {
+                return root;
         }
         const temp = root.left;
         root.left = root.right;
