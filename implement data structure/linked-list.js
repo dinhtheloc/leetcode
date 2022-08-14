@@ -75,39 +75,67 @@ class LinkedList {
     }
 
     insertIndex(value, index) {
-        if(index < 0 || index > this.length) {
+        if (index < 0 || index > this.length) {
             throw new Error("Insert index out of bounds");
         }
 
         if (index === 0) {
             return this.insertHead(value);
-          }
+        }
+
+        if (index === this.length) {
+            this.insert(value);
+        }
 
         this.length++;
         let i = 1;
         let currentNode = this.head;
-        let nextNode = null;
+        let preNode = null;
 
         const node = new Node(value);
 
-        while(i !== index) {
+        while (i !== index) {
             i++;
+            preNode = currentNode;
             currentNode = currentNode.next;
-            nextNode = currentNode.next;
         }
-
-        currentNode.next = node;
-        node.next = nextNode;
+        preNode.next = node;
+        node.next = currentNode;
         console.log(`insertIndex ${node.value} - ${index}`);
         return node;
     }
+
+    removeIndex(index) {
+        if (index < 0 || index > this.length) {
+            throw new Error("Remove index out of bounds");
+        }
+
+        this.length--;
+        let i = 1;
+        let currentNode = this.head;
+        let preNode = null;
+
+
+        while (i !== index) {
+            i++;
+            preNode = currentNode;
+            currentNode = currentNode.next;
+        }
+        const node = new Node(currentNode.value);
+
+        preNode.next = currentNode.next;
+        currentNode = null;
+        console.log(`removeIndex ${node.value} - ${index}`);
+        return node;
+    }
+
 
     print() {
         let current = this.head;
         console.log(`------------------`);
         while (current) {
             console.log(`Node -----> ${current.value}`);
-            
+
             current = current.next;
         }
     }
@@ -116,11 +144,21 @@ class LinkedList {
 const linkedList = new LinkedList();
 
 linkedList.insert(1);
-linkedList.insertHead(2);
-linkedList.insert(3);
-linkedList.insertHead(4);
-linkedList.insert(5);
-linkedList.removeHead();
-linkedList.removeLast();
-linkedList.insertIndex(5, 2) 
 linkedList.print();
+linkedList.insertHead(2);
+linkedList.print();
+linkedList.insert(3);
+linkedList.print();
+linkedList.insertHead(4);
+linkedList.print();
+linkedList.insert(5);
+linkedList.print();
+linkedList.removeHead();
+linkedList.print();
+linkedList.removeLast();
+linkedList.print();
+linkedList.insertIndex(5, 2);
+linkedList.print();
+linkedList.removeIndex(3);
+linkedList.print();
+
